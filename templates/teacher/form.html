@@ -27,17 +27,16 @@
                                 <small> Form</small>
                             </div>
                             <div class="card-body card-block">
-                                <form method="post">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         {{ form.as_p }}
                                     </div>
 
-
                                     {% if model %}
-                                    <button type="submit" class="btn btn-warning btn-md">Save</button>
+                                        <button type="submit" class="btn btn-warning btn-md">Save</button>
                                     {% else %}
-                                    <button type="submit" class="btn btn-success btn-md">Add</button>
+                                        <button type="submit" class="btn btn-success btn-md">Add</button>
                                     {% endif %}
                                 </form>
                             </div>

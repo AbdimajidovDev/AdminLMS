@@ -243,7 +243,7 @@ def subject_list(request):
 @login_required_decorator
 def teacher_create(request):
     model = Teacher()
-    form = TeacherForm(request.POST or None, instance=model)
+    form = TeacherForm(request.POST or None, request.FILES or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
 
@@ -304,7 +304,7 @@ def teacher_list(request):
 @login_required_decorator
 def student_create(request):
     model = Student()
-    form = StudentForm(request.POST, request.FILES, instance=model)
+    form = StudentForm(request.POST or None, request.FILES or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
 
