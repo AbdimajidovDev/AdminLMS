@@ -201,6 +201,7 @@ def subject_create(request):
 @login_required_decorator
 def subject_edit(request, pk):
     model = Subject.objects.get(id=pk)
+    # model = services.get_subjects(id=pk)
     form = SubjectForm(request.POST or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
@@ -213,7 +214,7 @@ def subject_edit(request, pk):
         'model': model,
         'form': form
     }
-    return redirect(request, 'subject/form.html', ctx)
+    return render(request, 'subject/form.html', ctx)
 
 
 @login_required_decorator
