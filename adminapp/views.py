@@ -248,7 +248,7 @@ def teacher_create(request):
         form.save()
 
         actions = request.session.get('actions', [])
-        actions += [f"You created teacher: {request.POST.get('name')}"]
+        actions += [f"You created teacher: {request.POST.get('first_name')}"]
         request.session['actions'] = actions
 
         teacher_count = request.session.get('teacher_count', 0)
@@ -269,7 +269,7 @@ def teacher_edit(request, pk):
         form.save()
 
         actions = request.session.get('actions', [])
-        actions += [f"You edited teacher: {request.POST.get('name')}"]
+        actions += [f"You edited teacher: {request.POST.get('first_name')}"]
         request.session['actions'] = actions
         return redirect('teacher_list')
     ctx = {
@@ -284,7 +284,7 @@ def teacher_delete(request, pk):
     teacher = Teacher.objects.get(id=pk)
     teacher.delete()
     actions = request.session.get('actions', [])
-    actions += [f"You deleted teacher: {request.POST.get('name')}"]
+    actions += [f"You deleted teacher: {request.POST.get('first_name')}"]
     request.session['actions'] = actions
     return redirect('teacher_list')
 
@@ -309,7 +309,7 @@ def student_create(request):
         form.save()
 
         actions = request.session.get('actions', [])
-        actions += [f"You created student: {request.POST.get('name')}"]
+        actions += [f"You created student: {request.POST.get('first_name')}"]
         request.session['actions'] = actions
 
         student_count = request.session.get('student_count', 0)
@@ -317,7 +317,6 @@ def student_create(request):
         request.session['student_count'] = student_count
         return redirect('student_list')
     ctx = {
-        'model': model,
         'form': form
     }
     return render(request, 'student/form.html', ctx)
@@ -331,7 +330,7 @@ def student_edit(request, pk):
         form.save()
 
         actions = request.session.get('actions', [])
-        actions += [f"You edited student: {request.POST.get('name')}"]
+        actions += [f"You edited student: {request.POST.get('first_name')}"]
         request.session['actions'] = actions
         return redirect('student_list')
     ctx = {
@@ -347,7 +346,7 @@ def student_delete(request, pk):
     student.delete()
 
     actions = request.session.get('actions', [])
-    actions += [f"You deleted student: {request.POST.get('name')}"]
+    actions += [f"You deleted student: {request.POST.get('first_name')}"]
     request.session['actions'] = actions
     return redirect('student_list')
 

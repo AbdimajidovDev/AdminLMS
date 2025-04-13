@@ -29,7 +29,8 @@ class Teacher(models.Model):
     last_name = models.CharField(max_length=55)
     age = models.IntegerField(null=False, blank=False)
     subject = models.ForeignKey(Subject, null=True, blank=True, on_delete=models.CASCADE)
-    faculty_teacher = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
+    faculty_teacher = models.ForeignKey(Faculty, on_delete=models.CASCADE, blank=True, null=True)
     kafedra_teacher = models.ForeignKey(Kafedra, on_delete=models.CASCADE)
 
     @property
@@ -55,7 +56,7 @@ class Student(models.Model):
     age = models.IntegerField(null=False, blank=False)
     class_leader = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='stud')
-    image = models.ImageField(upload_to='images', null=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     @property
     def full_name(self):

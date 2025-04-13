@@ -32,6 +32,7 @@
                                         <th>Full Name</th>
                                         <th>Faculty</th>
                                         <th>Kafedra</th>
+                                        <th>Image</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -42,6 +43,9 @@
                                         <td>{{ teacher.full_name }}</td>
                                         <td>{{ teacher.faculty_teacher }}</td>
                                         <td>{{ teacher.kafedra_teacher }}</td>
+                                        <td>
+                                            <img class="img" src="/media/{{ teacher.image }}" alt="photo" width="30px" height="40px">
+                                        </td>
                                         <td>
                                             <div class="table-data-feature">
                                                 <a class="item" data-toggle="tooltip" href="{% url 'teacher_edit' pk=teacher.id %}" data-placement="top" title="" data-original-title="Edit">

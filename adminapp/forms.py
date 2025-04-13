@@ -38,6 +38,7 @@ class TeacherForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'age': forms.NumberInput(attrs={'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
             'subject': forms.Select(attrs={'class': 'form-control'}),
             'faculty_teacher': forms.Select(attrs={'class': 'form-control'}),
             'kafedra_teacher': forms.Select(attrs={'class': 'form-control'}),
